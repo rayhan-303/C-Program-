@@ -1,0 +1,73 @@
+#include<stdio.h>
+int main(){
+
+
+int row1,colm1;
+int row2,colm2;
+int i,j;
+int matrix1[10][10],matrix2[10][10],result_matrix[10][10];
+int sum=0;
+
+printf("Enter row and colm number of 1st matrix : ");
+scanf("%d %d",&row1,&colm1);
+printf("Enter row and colm number of 2nd matrix : ");
+scanf("%d %d",&row2,&colm2);
+
+while(colm1 != row2)
+{
+    printf("\nError..! try again...");
+    printf("\nEnter row and colm number of 1st matrix : ");
+    scanf("%d %d",&row1,&colm1);
+    printf("Enter row and colm number of 2nd matrix : ");
+    scanf("%d %d",&row2,&colm2);
+}
+
+printf("Now add value on matrix 1..\n");
+for(i=0; i<row1; i++)
+{
+    for(j=0; j<colm1; j++)
+    {
+        printf("Value for [%d][%d] = ",i,j);
+        scanf("%d",&matrix1[i][j]);
+    }
+}
+
+printf("\nNow add value on matrix 2..\n");
+for(i=0; i<row2; i++)
+{
+    for(j=0; j<colm2; j++)
+    {
+        printf("Value for [%d][%d] = ",i,j);
+        scanf("%d",&matrix2[i][j]);
+    }
+}
+
+//Gun
+
+for(i=0; i<row1; i++)
+{
+    for(j=0; j<colm2; j++)
+    {
+        for(int k=0; k<colm1; k++)
+        {
+            sum = sum + matrix1[i][k] * matrix2[k][j];
+        }
+        result_matrix[i][j] = sum;
+        sum=0;
+    }
+}
+
+//Print results matrix
+
+for(i=0; i<row1; i++)
+{
+    for(j=0; j<colm2; j++)
+    {
+        printf("\n %d ",result_matrix[i][j]);
+    }
+    printf("\n");
+}
+    return 0;
+}
+
+//Multiplication on matrix..
